@@ -14,6 +14,14 @@ using namespace sol33;
 using namespace std;
 
 /*takeaways
+
+  - We keep breaking down the array into two subarrays.
+    - One of them must be sorted - we check if the
+      target is in that sorted array, which can be done quickly.
+    - If the target is not in the sorted array, it might be in the
+      other subarray. Either way, we keep reducing the size
+      of the array until we either find the target
+      or exit without finding it.
   - how do you know an array is sorted quickly? nums[0] < nums[n-1]
       [0,1,2,3,4,5,6,7]
       - rotate to the right you got [7,0,1,2,3,4,5,6], the biggest
@@ -21,13 +29,6 @@ using namespace std;
       - rotate to the left you got [1,2,3,4,5,6,7,0], the smallest
         number will be in nums[n-1] so nums[0] > nums[n-1]
 
-  - in this question, we just keep breaking down the array into
-    two subarrays. One of them must be sorted - we just check if the
-    target is in that sorted array, which can be done quickly. If
-    the target is not in the sorted array, it might be in the
-    other subarray. Either way, we just keep breaking down the
-    array until we either find the target or exit without finding
-    it.
 
   - [4,5,6,7,0,1,2]
     - break it down into two subarrays (right in the middle)
